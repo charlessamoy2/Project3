@@ -104,4 +104,5 @@ html {
 
 .submit-new button {
     float: right;
+    cursor: pointer;
 }
