@@ -40,6 +40,15 @@ function changeImage() {
 }
 
 //add li when new input
+const enterNewTask = document.getElementById("newTask");
+
+enterNewTask.addEventListener("keyup", function(event) {
+    if(event.keyCode === 13 && document.getElementById('newTask').value) {
+        event.preventDefault();
+        document.getElementById("addTaskBtn").click();
+    }
+});
+
 function newTask() {
     const newList = document.createElement("LI");
     const newItem = document.getElementById('newTask').value;
