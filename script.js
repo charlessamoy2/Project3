@@ -27,14 +27,10 @@ image.backgroundImage = `url(imgs/header${count}.png)`;
 function changeImage() {
     if (confirm("Do you want to change the header background?")) {
         count+=1;
-        if (count===2) {
-            image.color='white';
-        } else if (count===3){
-            image.color='black'
-        } else {
-            image.color='#084267';
-        }
         if (count>3) count=1;
+        if (count===1) image.color='#084267';
+        if (count===2) image.color='white';
+        if (count===3) image.color='black';
         image.backgroundImage = `url(imgs/header${count}.png)`;
     }
 }
