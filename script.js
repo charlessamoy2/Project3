@@ -30,3 +30,29 @@ function changeImage() {
     if (count>2) count=1;
     image.backgroundImage = `url(imgs/header${count}.png)`;
 }
+
+//add li when new input
+function newTask() {
+    const newList = document.createElement("LI");
+    const newItem = document.getElementById('newTask').value;
+    const newTask = document.createTextNode(newItem);
+    const newButton = document.createElement("A");
+    const newIcon = document.createElement("I");
+    
+    newIcon.setAttribute("class",'fas fa-trash');
+    newButton.setAttribute("onclick",'removeItem()');
+
+    newButton.appendChild(newIcon);
+
+    newList.appendChild(newTask);
+    newList.appendChild(newButton);
+
+    document.getElementById('to-do-list').appendChild(newList);
+    clearField();
+}
+
+
+//remove text input value when clicked
+function clearField() {
+    document.getElementById('newTask').value="";
+}
