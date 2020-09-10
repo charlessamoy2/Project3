@@ -50,35 +50,39 @@ enterNewTask.addEventListener("keyup", function(event) {
 });
 
 function newTask() {
-    const newList = document.createElement("LI");
-    const newItem = document.getElementById('newTask').value;
-    const newTask = document.createTextNode(newItem);
-    const newDiv = document.createElement("div");
-    const newButton = document.createElement("A");
-    const newIcon = document.createElement("I");
-    const newRadio = document.createElement("input");
+    if (document.getElementById('newTask').value) {
+        const newList = document.createElement("LI");
+        const newItem = document.getElementById('newTask').value;
+        const newTask = document.createTextNode(newItem);
+        const newDiv = document.createElement("div");
+        const newButton = document.createElement("A");
+        const newIcon = document.createElement("I");
+        const newRadio = document.createElement("input");
 
-    newIcon.setAttribute("class",'fas fa-times');
-    newButton.setAttribute("onclick",'removeItem(this)');
-    newRadio.setAttribute("type","checkbox");
-    newRadio.setAttribute("id","done");
-    newRadio.setAttribute("class","done");
-    newRadio.setAttribute("onclick","confirmDone(this)");
-    newDiv.setAttribute("class","list-buttons");
+        newIcon.setAttribute("class",'fas fa-times');
+        newButton.setAttribute("onclick",'removeItem(this)');
+        newRadio.setAttribute("type","checkbox");
+        newRadio.setAttribute("id","done");
+        newRadio.setAttribute("class","done");
+        newRadio.setAttribute("onclick","confirmDone(this)");
+        newDiv.setAttribute("class","list-buttons");
 
-    newButton.appendChild(newIcon);
+        newButton.appendChild(newIcon);
 
-    newDiv.appendChild(newRadio);
-    newDiv.appendChild(newButton);
-    
-    newList.appendChild(newTask);
-    newList.appendChild(newDiv);
+        newDiv.appendChild(newRadio);
+        newDiv.appendChild(newButton);
+        
+        newList.appendChild(newTask);
+        newList.appendChild(newDiv);
 
-    document.getElementById('to-do-list').appendChild(newList);
-    if(document.getElementById('task-progress').style.visibility === 'hidden') document.getElementById('task-progress').style.visibility = 'visible';
-    if(document.getElementById('no-tasks')) document.getElementById('no-tasks').remove();
-    updateProgress();
-    clearField();
+        document.getElementById('to-do-list').appendChild(newList);
+        if(document.getElementById('task-progress').style.visibility === 'hidden') document.getElementById('task-progress').style.visibility = 'visible';
+        if(document.getElementById('no-tasks')) document.getElementById('no-tasks').remove();
+        updateProgress();
+        clearField();
+    } else {
+        alert("NO TASK INPUTTED! PLEASE INPUT TASK.");
+    }
 }
 
 
