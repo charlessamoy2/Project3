@@ -12,3 +12,21 @@ const currentDay = function(splitter){
 };
 
 document.getElementById('currentDate').textContent=currentDay('/');
+
+//change image on click
+document.querySelector('#header-div').addEventListener('click',changeImage);
+let image = document.getElementById('header-div').style;
+image.color = '#084267';
+let count = 1;
+image.backgroundImage = `url(imgs/header${count}.png)`;
+
+function changeImage() {
+    count+=1;
+    if (count===2) {
+        image.color='white';
+    } else {
+        image.color='#084267';
+    }
+    if (count>2) count=1;
+    image.backgroundImage = `url(imgs/header${count}.png)`;
+}
