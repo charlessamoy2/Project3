@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samoy Task List</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <main id="phone">
+        <header id="header-div">
+            <h1 id="currentDate"></h1>
+        </header>
+        <section id="list-div">
+            <ul id="to-do-list">
+                <li>
+                    Test List Item
+                    <a onclick="removeItem()"><i class="fas fa-trash"></i></a>
+                </li>
+                <li>
+                    Test List Item 2
+                    <a onclick="removeItem()"><i class="fas fa-trash"></i></a>
+                </li>
+            </ul>
+        </section>
+        <footer id="submit-list">
+            <div class="submit-new">
+                <input type="text" id="newTask" name="newTask" placeholder="Enter new task here...">
+                <button type="submit" onclick="newTask()">Add Task</button>
+            </div>
+        </footer>
+    </main>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie_html.min.js" integrity="sha512-9rUqxXXUmBo8yjeEu8BWADz5RZHXO/BIajFHDc07G09/fUnROiJcIX0FITClFdYZxiAWD4LX7YtPtFR4NfevVw==" crossorigin="anonymous"></script>
+</body>
+</html>
