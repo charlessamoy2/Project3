@@ -1,3 +1,5 @@
+noTasks();
+
 //get current date
 const currentDay = function(splitter){
     today = new Date();
@@ -39,8 +41,7 @@ function newTask() {
     const newButton = document.createElement("A");
     const newIcon = document.createElement("I");
     
-    newList
-    newIcon.setAttribute("class",'fas fa-trash');
+    newIcon.setAttribute("class",'fas fa-times');
     newButton.setAttribute("onclick",'removeItem(this)');
 
     newButton.appendChild(newIcon);
@@ -49,6 +50,7 @@ function newTask() {
     newList.appendChild(newButton);
 
     document.getElementById('to-do-list').appendChild(newList);
+    if(document.getElementById('no-tasks')) document.getElementById('no-tasks').remove();
     clearField();
 }
 
@@ -62,4 +64,17 @@ function clearField() {
 function removeItem(element) {
     const listItem = element.parentElement;
     listItem.remove();
+    
+    //if no items display no tasks
+    const liList = document.getElementById("to-do-list").getElementsByTagName("li");
+    if(liList.length===0) noTasks();
+}
+
+//add task if nothing is there
+function noTasks() {
+    const noItems = document.createElement("h1");
+    const message = document.createTextNode("No tasks please add them below!")
+    noItems.appendChild(message)
+    noItems.setAttribute("id","no-tasks");
+    document.getElementById('to-do-list').appendChild(noItems);
 }
