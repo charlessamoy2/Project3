@@ -39,8 +39,9 @@ function newTask() {
     const newButton = document.createElement("A");
     const newIcon = document.createElement("I");
     
+    newList
     newIcon.setAttribute("class",'fas fa-trash');
-    newButton.setAttribute("onclick",'removeItem()');
+    newButton.setAttribute("onclick",'removeItem(this)');
 
     newButton.appendChild(newIcon);
 
@@ -55,4 +56,10 @@ function newTask() {
 //remove text input value when clicked
 function clearField() {
     document.getElementById('newTask').value="";
+}
+
+//removeItem function
+function removeItem(element) {
+    const listItem = element.parentElement;
+    listItem.remove();
 }
